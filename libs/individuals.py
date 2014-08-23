@@ -1,7 +1,6 @@
 from .traits import Trait
 import random
 
-
 class Individual(object):
     traits = {}
     crossover_threshold = 0.5
@@ -84,4 +83,3 @@ class Individual(object):
                 traits[name] = theirgene
 
         return self.__class__(traits=traits)
-        
