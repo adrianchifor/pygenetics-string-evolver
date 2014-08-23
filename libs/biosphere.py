@@ -2,7 +2,6 @@ from .individuals import Individual
 from .utils import weighted_choice
 import random
 
-
 class Biosphere(object):
     species = Individual
     specimens = 10
@@ -91,4 +90,3 @@ class Biosphere(object):
         if not self.sorted:
             self.population.sort()
             self.sorted = True
-
