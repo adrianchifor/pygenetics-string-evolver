@@ -1,7 +1,6 @@
 import random
 import bisect
 
-
 def weighted_choice(weights):
     totals = []
     running_total = 0
