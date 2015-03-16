@@ -2,20 +2,12 @@ from libs.traits import IntegerTrait
 from libs.individuals import Individual
 from libs.biosphere import Biosphere
 
-
 TARGET = raw_input("String to evolve: ");
-
 
 class GuesserTrait(IntegerTrait):
     int_min = 0 
     int_max = 255 
     delta = 5 
-
-
-traits = {}
-for c in range(len(TARGET)):
-    traits[str(c)] = GuesserTrait
-
 
 class StringGuesser(Individual):
     traits = traits
@@ -40,7 +32,6 @@ class StringGuesser(Individual):
 
         return diffs 
 
-
 class GuesserBiosphere(Biosphere):
     species = StringGuesser
     specimens = 100
@@ -49,13 +40,17 @@ class GuesserBiosphere(Biosphere):
     survival = 3 
 
 
+traits = {}
+for c in range(len(TARGET)):
+    traits[str(c)] = GuesserTrait
+
 def main():
     biosphere = GuesserBiosphere()
     
     i = 0
     while True:
         best = biosphere.best()
-        print "Generation %d: %s     Best = %d" % (
+        print "Generation %d: %s   Best = %d" % (
             i, best, best.fitness())
         
         if best.fitness() <= 0:
